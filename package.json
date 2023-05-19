@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^37.0.1",
+    "@ckeditor/ckeditor5-media-embed": "^37.0.1",
+    "@ckeditor/ckeditor5-upload": "^37.0.1"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-alignment": "^37.0.1"
+  }
+}

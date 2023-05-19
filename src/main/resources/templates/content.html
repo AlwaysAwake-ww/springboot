@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<html lang="en">
+
+<head th:insert="/fragment/head.html :: head">
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" th:insert="/fragment/navbar.html :: navbar">
+
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav" th:insert="/fragment/sidenav.html :: sidenav">
+
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4"></h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active"></li>
+                    </ol>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-12">
+                            <th:block th:with="writer=${post.memberDomain}">
+
+                                <div class="card border-light md-12">
+                                    <div class="form-floating mb-3 d-flex justify-content-center align-items-center">
+                                        <h2 th:text="${post.postTitle}"></h2>
+                                        <input id="writerIndex" type="hidden" th:value="${writer.memberIndex}">
+                                        <input id="postIndex" type="hidden" th:value="${post.postIndex}">
+                                    </div>
+                                    <hr style="border:1px solid black">
+
+                                    <div id="board" class="">
+                                        <input id="getcontent" th:value="${post.postContent}" type="hidden">
+
+                                        <div id="content" th:utext="${post.postContent}"></div>
+
+                                    </div>
+                                </div>
+                                <div th:if="${writer.memberIndex}==${member.memberIndex}">
+                                    <button type="button" id="editBtn" class="btn btn-light">수정</button>
+                                    <button type="button" id="deleteBtn" class="btn btn-light">삭제</button>
+
+                                </div>
+
+                                <div th:insert="/fragment/modal.html :: deleteModal">
+                                </div>
+
+                                <div th:insert="/fragment/modal.html :: editModal">
+                                </div>
+                            </th:block>
+
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/js/content.js"></script>
+
+</body>
+
+
+<style>
+    #board {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+
+</html>

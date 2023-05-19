@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<html lang="en">
+
+<head th:insert="/fragment/head.html :: head">
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" th:insert="/fragment/navbar.html :: navbar">
+
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav" th:insert="/fragment/sidenav.html :: sidenav">
+
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">내 정보</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active"></li>
+                    </ol>
+                    
+                    <div class="row info">
+                        <div class="col-md-7 form-floating mb-3">
+                            <input type="text" id="name" class="form-control" th:value="${#authentication.principal.memberDomain.memberName}" readonly>
+                            <label for="name">user name</label>
+
+                        </div>
+                        <div class="col-md-7 form-floating mb-3" >
+                            <input type="text" id="email" class="form-control" th:value="${#authentication.principal.memberDomain.memberEmail}" readonly>
+                            <label for="email">user email</label>
+                        </div>
+                        <div class="col-md-7 form-floating mb-3">
+                            <input type="text" id="date" class="form-control" th:value="${#authentication.principal.memberDomain.joinDate}" readonly>
+                            <label for="date">user join date</label>
+                        </div>
+                        <div class="col-md-7 form-floating mb-3">
+                            <textarea id="introduction" class="form-control" rows="6" th:text="${#authentication.principal.memberDomain.memberIntroduction}" resize="none" readonly></textarea>
+                            <label for="introduction">user introduction</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row info">
+                        <div class="col-md-7">
+                            <p id="updateBefore"  class="alert alert-dark" style="display:none">자기소개 수정이 가능합니다. 수정 후 저장을 눌러주세요.</p>
+                        </div>
+                        <div class="col-md-7">
+                            <p id="updateSubmit"  class="alert alert-success" style="display:none">수정이 완료되었습니다.</p>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="button" id="infoUpdateBtn" value="자기소개 수정" class="btn btn-primary" style="">
+                        </div>
+                        <div class="col-md-7">
+                            <input type="button" id="infoUpdateSubmitBtn" value="자기소개 저장" class="btn btn-primary" style="display:none">
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+        <script src="/js/mypage.js"></script>
+</body>
+
+
+<style>
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+
+</html>

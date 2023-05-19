@@ -1,0 +1,120 @@
+<div th:fragment="sidenav" id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">Info</div>
+
+                <div class="card bg-dark text-white mb-4">
+                    <!-- <div class="card-body">
+                        <input th:value="${member.memberIndex}" type="hidden" id="memberIndex">
+                        <a th:text="${member.memberName}"></a><br>
+                        <a th:text="${member.memberEmail}"></a><br>
+                        <a th:text="${member.memberRole}"></a>
+                    </div> -->
+                    <div class="card-body">
+                        <a th:text="${#authentication.principal.memberDomain.memberIndex}" id="memberIndex" style="display:none"></a><br>
+                        <a th:text="${#authentication.principal.memberDomain.memberName}" id="memberName"></a><br>
+                        <a th:text="${#authentication.principal.memberDomain.memberEmail}" id="memberEmail"></a><br>
+                        <a th:if="${#authentication.principal.memberDomain.memberRole=='MEMBER_ROLE'}" id="memberRole">일반회원</a><br>
+                        <a th:unless="${#authentication.principal.memberDomain.memberRole=='MEMBER_ROLE'}" id="memberRole">일반회원</a><br>
+                        <!-- <a th:text="${#authentication.principal.memberDomain.memberRole}" id="memberRole"></a><br> -->
+                        <!-- <a th:text="${#authentication.principal.memberDomain.joinDate}" id="joinDate"></a><br> -->
+                        
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="nav-link" href="/user/mypage">MyPage</a>
+
+                    </div>
+                </div>
+
+
+                <div class="sb-sidenav-menu-heading">Management</div>
+
+                <a class="nav-link" href="/user/write">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Write
+                </a>
+
+                <a class="nav-link" href="/user/mypost">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    MyPost
+                </a>
+
+                <a class="nav-link" href="/user/team">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Team Manager
+                </a>
+
+                <div class="sb-sidenav-menu-heading">Explore</div>
+
+                <a class="nav-link" href="/user/allpost">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    AllPost
+                </a>
+                
+                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                    data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                            Authentication
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="login.html">Login</a>
+                                <a class="nav-link" href="register.html">Register</a>
+                                <a class="nav-link" href="password.html">Forgot Password</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#pagesCollapseError" aria-expanded="false"
+                            aria-controls="pagesCollapseError">
+                            Error
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="401.html">401 Page</a>
+                                <a class="nav-link" href="404.html">404 Page</a>
+                                <a class="nav-link" href="500.html">500 Page</a>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
+                <!-- <div class="sb-sidenav-menu-heading">Addons</div>
+                <a class="nav-link" href="charts.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    Charts
+                </a>
+                <a class="nav-link" href="tables.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Tables
+                </a> -->
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            Start Bootstrap
+        </div>
+    </nav>
+    <script>
+
+        // function getJSessionIdCookie() {
+        //     var cookieValue = null;
+        //     var name = "JSESSIONID";
+        //     var cookies = document.cookie.split(';');
+        //     for (var i = 0; i < cookies.length; i++) {
+        //         var cookie = cookies[i].trim();
+        //         if (cookie.substring(0, name.length + 1) == (name + '=')) {
+        //             cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        //             break;
+        //         }
+        //     }
+        //     return cookieValue;
+        // }
+
+    </script>
+</div>

@@ -1,0 +1,161 @@
+
+<!-- previewModal -->
+<!-- 글쓰기 페이지에서 미리보기 모달 -->
+<div th:fragment="previewModal" class="modal fade" tabindex="-1" id="previewModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="previewModalLabel">미리보기</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div id="previewContent">
+                    <p>Modal body text goes here.</p>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 글 저장 모달 -->
+<div th:fragment="saveModal" class="modal fade" tabindex="-1" id="saveModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveModalLabel">저장할까요?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <p>저장 버튼을 누르면 작성 글이 저장됩니다.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveModalBtn">확인</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 글 취소 모달 -->
+<div th:fragment="cancelModal" class="modal fade" tabindex="-1" id="cancelModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelModalLabel">취소할까요?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <p>확인 버튼을 누르면 작성 글 작성을 취소합니다.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="cancelModalBtn">확인</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 글 삭제 모달 -->
+<div th:fragment="deleteModal" class="modal fade" tabindex="-1" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">삭제할까요?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <p>확인 버튼을 누르면 작성 글이 삭제됩니다.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="deleteModalBtn" class="btn btn-light"
+                                        th:attr="data-href=@{/user/post/delete/{postNum}(postNum=${post.postIndex})}">확인</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 글 수정 모달 -->
+<div th:fragment="editModal" class="modal fade" tabindex="-1" id="editModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">수정</h5>할까요?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <p>확인 버튼을 누르면 수정 페이지로 이동합니다.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="editModalBtn" class="btn btn-light"
+                                        th:attr="data-href=@{/user/post/edit/{postNum}(postNum=${post.postIndex})}">확인</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 글 수정 저장 모달 -->
+<div th:fragment="editSaveModal" class="modal fade" tabindex="-1" id="editSaveModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editSaveModalLabel">저장할까요?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <p>저장 버튼을 누르면 수정사항이 적용됩니다.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" id="editSaveModalBtn" class="btn btn-light"
+                                        th:attr="data-href=@{/user/post/edit/{postNum}(postNum=${post.postIndex})}">확인</button> -->
+                <button type="button" class="btn btn-primary" id="editSaveModalBtn">확인</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 팀 추가 모달 -->
+<div th:fragment="teamSearchModal" class="modal fade" tabindex="-1" id="teamSearchModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="teamSearchModalLabel">팀 검색</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+                <div class="row">
+                    <div class="col-md-12" id="teamSearchTableBody">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" id="editSaveModalBtn" class="btn btn-light"
+                                        th:attr="data-href=@{/user/post/edit/{postNum}(postNum=${post.postIndex})}">확인</button> -->
+                <button type="button" class="btn btn-primary" id="editSaveModalBtn">확인</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
